@@ -1,0 +1,10 @@
+1. 앞으로 git 프로젝트로 만들고 싶은 것 
+git을 협업에서 잘 이용해서 완성도 높은 모바일 앱을 구현해보고 싶다.
+
+2. 1주차 주요 개념 키워드 적어보기
+
+- github를 이용할 수 있는 여러가지 방법 (포트폴리오 등)
+- git 초기화 (initialize) : git을 관리하는 프로젝트로 만들어 주는 것
+- repo = repository (local/remote)
+- tracking : local과 remote을 연결하는 것 -> push/pull
+- clone: remote repo를 다운로드해서 내 컴퓨터로 받아오는 것
