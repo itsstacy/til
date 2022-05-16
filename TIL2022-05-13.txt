@@ -1,0 +1,30 @@
+- 다양한 javascript 알고리즘 (문법) 배우기 시작
+number() 숫자형으로 타입을 바꿀때 - 소수점까지
+
+parseint() 숫자형으로 타입을 바꿀때 - 정수 반환
+
+let a = '10.223456';
+
+let b = parseInt(a); // 10 
+let c = Number(a); // 10.223456
+
+String.trim() 대상 문자열 앞뒤에 공백문자 제거후 문자열 반환
+
+string.split() 각 문자를 모두 분리하여 배열로 반환
+string.split( separator, limit ) 분할기준(separator)과 최대 분할 개수 지정
+
+data.split() 대상 문자열 전체를 단일 요소로 하는 배열로 반환
+
+reduce는 total의 값과 val값이 서로 더해지면서 쌓이는 형태
+
+
+- ctrl+/ >전체 주석처리 
+
+- 자바스크립트 기본 문법 강의를 듣고있다. 들으면서 참 기초도 제대로 안돼있다는 생각이 들었다. 하루아침에 완성되는게 아닌걸 알기에 일주일동안 진짜 강의도 많이 들어보고 문제도 많이 풀어봐야겠다.
+
+- udemy에서 javascript기반 알고리즘 강의를 시작했다. 스파르타에서 제공하는 파이참 강의보단 확실히 도움이 될 것 같다. 
+
+- code sniffet에 대해 배운 것!
+
+- ctrl+shift => vsc command pallette 
+

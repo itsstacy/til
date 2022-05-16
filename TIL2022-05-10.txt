@@ -1,0 +1,44 @@
+- 파이썬 강의를 듣는데 자세하게 설명을 안해주고 그냥 외우라는 식으로 넘어가는 것 같아서 따로 검색을 해보면서 넘어갈 수 밖에 없는데 시간이 많이 걸린다.
+
+- Python: f-string formatting
+https://blockdmask.tistory.com/429
+
+- Flask: request.args
+
+request : from flask import request
+requests : pip install requests → library istalled by pip
+
+- 웹개발 플러스 강의 2주차를 들으면서 잘 이해가 안되는 부분이 많아 시간을 많이 소비했다. 
+
+- 그리고 멘탈도 나갔는데.. 조금 휴식하고 다시 회복했다. 
+
+- url뒤에 ?를 붙이는 방법이 너무 생소해서 이해가 잘 안됐다. 
+
+- jinja2는 html에서 작동하지만 css에서는 작동하지 않는다.
+
+- mongo DB를 서버 ip를 써서 연결하는 방식이 있다. 
+
+- <a href="/detail/{{ word.word }}?status+give=old">{{ word.word }}</a> 이런식으로 url 구조를 직접 잡아가는 과정이 엄청 흥미롭다고 생각했다. 읽을 줄만 알았는데 쓰는 법도 알게된 것 같은 느낌이다. 
+
+- <% %>를 이용하는 방법이 독특하고 편리하다. html body에다가 바로바로 써주니까 좋다. php에도 이런 기능이 있는데!
+
+.encode('ascii','ignore').decode('utf-8') : 이상한 문제 삭제하는 법
+
+- jinja말고 django도 배워보고싶다. 
+
+- 프론트엔드가 api 사용하는 것도 중요하다.
+
+|safe : html에 있는 ,<b>같은 태그가 안전한 태그이니 인식해도 좋다는 뜻
+
+- | 파이프라고 한다. 처음 써본다!
+
+- {% if result.pronunciation %} ==  {% if result.pronunciation ?= none %}
+
+- let words = {{ words|tojson }}; 
+여기서 |tojson: html이 아니고 데이터로 인식하라고 명령
+
+- 신기한 단축키: ctrl + shift + D : 선택된 부분이 복사+붙여넣기됨
+
+- bulma에 대해 들어봤는데 막상 배워야겠다고 생각은 못했었다. 이번 기회에 배워보니 너무 직관적이고 쉽다. 그리고 pure css와 함께 사용할 수 있는 점이 가장 큰 강점. 추후에 프로젝트에 적용해도 좋을 것 같다!
+
+
