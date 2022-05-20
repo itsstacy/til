@@ -1,4 +1,4 @@
-##TIL 2020-05-20
+## TIL 2020-05-20
 
 javascript S.A.를 작성했다. 모던 자바스크립트 Deep Dive라는 책을 참고했고 정리하여 벨로그에 업로드했다!
 https://velog.io/@nugget/Javascript-%ED%83%90%EA%B5%AC%ED%95%98%EA%B8%B0
