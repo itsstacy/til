@@ -1,0 +1,55 @@
+- map.set 에 대해 더 많이 알게됐다. 객체의 개념을 처음 접했는데 상당히 복잡해질 것 같다.
+https://ko.javascript.info/map-set
+
+- 삼항연산자: 조건부 삼항 연산자는 JavaScript에서 세 개의 피연산자를 취할 수 있는 유일한 연산자입니다. 
+사용방법: 맨 앞에 조건문 들어가고. 그 뒤로 물음표(?)와 조건이 참truthy이라면 실행할 식이 물음표 뒤로 들어갑니다. 바로 뒤로 콜론(:)이 들어가며 조건이 거짓falsy이라면 실행할 식이 마지막에 들어갑니다. >>> 보통 if 명령문의 단축 형태로 쓰입니다.
+condition ? exprIfTrue : exprIfFalse 
+
+예1: 
+function getFee(isMember) {
+  return (isMember ? '$2.00' : '$10.00');
+}
+
+console.log(getFee(true));
+// expected output: "$2.00"
+
+console.log(getFee(false));
+// expected output: "$10.00"
+
+console.log(getFee(null));
+// expected output: "$10.00"
+
+예2:
+let greeting = person => {
+  let name = person ? person.name : `stranger`
+  return `Howdy, ${name}`
+}
+
+console.log(greeting({name: `Alice`}));  // "Howdy, Alice"
+console.lo
+g(greeting(null));             // "Howdy, stranger"
+
+예3 (else if 사용가능) :
+function example(…) {
+    return condition1 ? value1
+         : condition2 ? value2
+         : condition3 ? value3
+         : value4;
+}
+
+// 위의 코드는 아래의 코드와 동일합니다.
+
+function example(…) {
+    if (condition1) { return value1; }
+    else if (condition2) { return value2; }
+    else if (condition3) { return value3; }
+    else { return value4; }
+}
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+
+
+
+
+
+

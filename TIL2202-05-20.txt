@@ -1,0 +1,35 @@
+
+javascript S.A.를 작성했다. 모던 자바스크립트 Deep Dive라는 책을 참고했고 정리하여 벨로그에 업로드했다!
+https://velog.io/@nugget/Javascript-%ED%83%90%EA%B5%AC%ED%95%98%EA%B8%B0
+
+요소(elements)
+<div>안녕</div>, <p>하세요</p>, <button>확인</button>
+
+DOM (문서객체모델)
+DOM은 html 단위 하나하나를 객체로 생각하는 모델입니다. 예를 들면, 'div'라는 객체는 텍스트 노드, 자식 노드 등등, 하위의 어떤 값을 가지고 있겠죠? 이런 구조를 트리 구조라고 합니다.
+네, 맞습니다! DOM이 트리구조란 소리입니다. 
+
+CSS- selector
+selector는 꾸밀 요소를 선택하는 선택자
+
+/* id selector */
+#id { ... }
+
+/* class selector */
+.class { ... }
+
+/* tag selector */
+tagName { ... }
+
+/* 여러 요소 선택하기 */
+#id, .class { ... }
+
+/* 수도 클래스 선택자 */
+/* 어떤 요소가 특정 상태(마우스 올림, 포커스 됨 등등)일 때만 선택하게 해주는 선택자예요. */
+button:hover { ... }
+
+calc -> media queries에는 사용할 수 없음
+
+유사배열: 배열같이 생겼지만 array의 내장함수들을 사용할 수 없다.
+예) HTMLcollection
+
