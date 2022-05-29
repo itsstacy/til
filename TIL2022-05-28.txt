@@ -1,0 +1,17 @@
+어제 새벽에 발생한 에러를 잡았다.
+정말 사소한 부분이었는데.. 여러 케이스를 접해보지 못해서 그런지 사소한 부분에서 실수를 많이 내고 찾는데도 시간이 많이 걸린다. 
+-> 문제는 new_bucket_list를 대괄호 안에 감싸놓고는 그걸 버젓이 또 대괄호 안에 넣어버렸다는 것. 표준답안은 다음과 같았다:
+
+case "bucket/CREATE": 
+            const new_bucket_list = [...state.list, action.bucket];
+            return {list : new_bucket_list};
+           
+
+나만의 페이스 만들어나가기
+토요일은 뭔가 마음이 붕 뜬다. 항해에서 맨날 15-16시간씩 컴퓨터앞에 앉아있다보니 아웃도어를 너무 사랑하는 내 자신에게 너무 미안하다. 밤늦게 마치고 아쉽게나마 조깅을 다녀오는데 그래도 해를 못봐서 아쉽다. 내일은 하루 쉬어가려 한다. 일요일에도 나오는 사람이 있긴 하지만, 나는 충전을 확실히 해서 나만의 효율적인 페이스를 만들어 나가는게 맞는 것 같다. 그런데 사실 워낙 P라서 정해진 사이클을 만들어 나가는건 항상 힘들다!
+
+
+case "bucket/CREATE": 
+            const new_bucket_list = [...state.list, action.bucket];
+            return {list : new_bucket_list};
+        

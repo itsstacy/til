@@ -1,0 +1,30 @@
+리액트 입문주차가 시작되었고 다음과 같은 커리큘럼으로 진행했다.
+
+1. 스파르타에서 제공하는 '리액트 기초반 강의'
+강의를 들으면서 벨로그에 정리를 했다. 
+
+컴포넌트
+https://velog.io/@nugget/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B8%B0%EC%B4%88-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
+
+가상돔과 라이프사이클
+https://velog.io/@nugget/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B8%B0%EC%B4%88-%EA%B0%80%EC%83%81%EB%8F%94%EA%B3%BC-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4
+JSX 사용법
+https://velog.io/@nugget/JSX-%EC%82%AC%EC%9A%A9%EB%B2%95
+
+2. 스파르타 강의가 잘 이해가 안되서 애플코딩 리액트 강의를 들었다. 
+컴포넌트에 대해 이해가 빠르게 잘 된것 같아 다른 팀원들에게도 많이 추천했다.
+
+벨로그에 정리한 애플코딩 강의
+https://velog.io/@nugget/%EC%95%A0%ED%94%8C%EC%BD%94%EB%94%A9-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B8%B0%EC%B4%88%EA%B0%95%EC%9D%98
+
+3. 개인과제: "내 일주일 평점 남기기" 를 구현하는 것.
+과제 예시
+http://myratetest.s3-website.ap-northeast-2.amazonaws.com/
+
+4. 팀과제: 리액트 강의를 들으면서 기초개념에 대해 같이 얘기해보고 공유한다.
+
+5. 개인 S.A. : 자바스크립트에 대한 S.A.를 진행했다. 
+모던 자바스크립트 DEEP DIVE라는 책을 참고하면서 다음과 같이 작성했다.
+
+Javascript 탐구하기 (ft. 모던 자바스크립트 Deep Dive)
+https://velog.io/@nugget/Javascript-%ED%83%90%EA%B5%AC%ED%95%98%EA%B8%B0
