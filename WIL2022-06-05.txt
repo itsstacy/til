@@ -1,0 +1,18 @@
+라이프사이클(클래스형 vs 함수형)
+
+클래스형에서의 Lifecycle 관리:
+Lifecycle 매서드를 이용해서 관리한다. 
+componentWillMount
+componentDidMount
+componentWillUnmount
+
+- Lifecycle은 어떤 프로그램이 실행되고 종료되는 과정을 의미한다. 
+-  React 웹 어플리케이션이 실행되고(Mount) 종료되기(Unmount)까지의 과정을 세세하게 나누어서 컨트롤할 수 있다.
+
+Hooks의 Lifecycle 관리:
+- useEffect를 통해 Lifecycle을 관리한다. 
+- useEffect는 클래스 기반 Lifecycle 메소드에서 componentDidMount와 componentDidUpdate, componentWillUnmont 세 가지 역할을 한다. 
+- useEffect(<function>, <Array>); -> 이런식으로 useEffect 매서드를 선언하고,
+<function> : 넣으면 render 또는 re-render 되었을 때 실행된다. 
+<Array> : 빈 브라켓으로 두 번째 파라미터<Array>를 주게 되면 이 의미는 어떠한 state가 변화되더라도 컴포넌트를 re-render하지 않겠다.  <Array>에 값을 넣으면, 그 값의 state가 변화되면 컴포넌트를 re-render하겠다는 의미이다.
+- useEffect의 return값을 설정하면 클래스형에서의 Lifecycle매서드에서 componentWillUnmount와 같은 기능을 한다.
