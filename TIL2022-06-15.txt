@@ -1,0 +1,12 @@
+
+map내에서 props 다루기
+데이터리스트를 map 돌릴 때 그 안에서 하위 컴포넌트에게 prop를 내려줄 때 특정 아이템의 데이터만 내려보내주는 방법:
+
+ul>
+      {data.map((d) => (
+        <li>
+          <button onClick={() => setModalId(d.id)}>클릭</button>
+        </li>
+      ))}
+    </ul>
+    <Modal id={modalId}>뭐</Modal>
