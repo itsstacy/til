@@ -1,0 +1,10 @@
+socket.io 
+
+기본개념
+웹소켓을 이용한 라이브러리
+low-latency, bidirectional and event-based
+- 메세지를 보낼 때는 emit
+- 메세지를 받을 때는 on
+
+하루종일 백엔드와 붙어서 실시간 채팅 구현에 성공했다! 
+
