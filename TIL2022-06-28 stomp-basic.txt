@@ -1,0 +1,35 @@
+socket 통신의 기본 개념과 stomp
+
+websocket
+full duplex, 2-way communication
+polling, long polling
+auto-reconnect with intelligence
+
+흐름
+handshake -> connection opened -> bi-directional message -> one side disconnect
+
+socket.io 
+nodeJS에 종속적
+
+stomp
+java에 종속적. 이번에는 stomp를 통해 실시간 통신을 구현해볼거다. 
+일단 목표는 실시간채팅(추가기능)과 알림기능이다. 
+
+stomp의 흐름
+→ 서버와 연결할 클라이언트 Connection
+→ 메세지 전송 전 Subscriber와 Publisher를 지정
+→ Subscribe를 하면 해당 URL로 나에게 메세지를 보낼 수 있는 경로가 생긴다
+→ Publisher를 하면 Publishe한 URL로 메세지가 이동한다
+
+매서드
+- topic: 일 대 다수의 커넥션에서 메시지를 전송한다
+- queue: 일 대 일의 커넥션에서 메시지를 전송한다
+- user: 메시지를 보내기 위한 사용자를 특정한다
+
+작업흐름
+- 백엔드 개발자에게 소켓 연결 endpoint를 받는다. (api주소)
+- soketjs-client와 stompjs를 install 
+ (socketjs는 소켓을 지원하지 않는 브라우저 대응을 위한 것)
+npm i soketjs-client, @stomp/stompjs --save
+
+* brokerURL이 http 일경우 ws를 https일 경우 wss를 붙여서 사용한다.

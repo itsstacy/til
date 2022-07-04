@@ -1,0 +1,25 @@
+video calling app using webRTC and websockets (2021):
+https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
+
+webRTC
+2011년도에 나온 오픈소스 프레임워크이며 실시간 통신이 가능하게 한다.
+webRTC를 더 쉽게 이용할 수 있도록 도와주는 자바스크리브 라이브러리가 있는데:
+- easyRTC
+- PeerJS
+- RTCPeerConnection,
+- simpleWebRTC
+- Simple Peer
+이 중에서 simple-peer가 가장 많이 쓰인다. 
+
+signaling
+- peerA가 통신을 시작하려고 할때, offer signal이 자동생성
+- offer가 peerB 에게 전달
+- peerB가 answer signal을 생성하기 위해 연결
+- answer signal이 peerA에게로 전달
+- peerA가 연결
+
+type 
+whether the object is an "offer" or a "answer"
+
+sdp (Session Description Protocol) 
+information about the connection: IP Address, the port number, and the media to be shared
