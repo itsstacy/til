@@ -1,0 +1,58 @@
+실시간 채팅 stomp js, sock js
+
+How to use switch cases inside JSX
+- if...else statement 대신 사용
+- 변수 하나만 비교할 때 쓰기 좋음
+
+예제
+
+function App(props){
+  const { role } = props
+  if (role === 'author'){
+    return <AuthorLayout>What will you write today?</AuthorLayout>
+  }
+  if (role === 'admin'){
+    return <AdminLayout>Your latest reports </AdminLayout>
+  }
+  if (role === 'moderator'){
+    return <ModeratorLayout>Your ongoing events</ModeratorLayout>
+  }
+  return <GuestLayout>Your current feed</GuestLayout>
+}
+
+refactored 
+
+function App(props){
+  const { role } = props
+  switch(role) {
+    case 'author':
+      return <AuthorLayout>What will you write today?</AuthorLayout>
+    case 'admin':
+      return <AdminLayout>Your latest reports </AdminLayout>
+    case 'moderator':
+      return <ModeratorLayout>Your ongoing events</ModeratorLayout>
+    default:
+      return <GuestLayout>Your current feed</GuestLayout>
+  }
+}
+
++break 
+
+function App(props){
+  const { role } = props
+  let component
+  switch(role) {
+    case 'author':
+      component = <AuthorLayout>What will you write today?</AuthorLayout>
+    break
+    case 'admin':
+      component = <AdminLayout>Your latest reports </AdminLayout>
+    break
+    case 'moderator':
+      component = <ModeratorLayout>Your ongoing events</ModeratorLayout>
+    break
+    default:
+      component = <GuestLayout>Your current feed</GuestLayout>
+  }
+  return component
+}

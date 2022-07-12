@@ -1,0 +1,14 @@
+AXIOS 트러블슈팅
+새롭게 배운 사실이 하나 있는데, axios로 api request를 보낼 때, "post" 액션일 경우, payload가 비어있더라도 {} 이렇게 빈 괄호를 보내줘야 한다는 것이다. 베이직한 부분임에도 불구하고 잘못된 점을 바로 찾아내지 못한 이유는 network에서 각 탭에 어떤 부분이 나와야 하는지 완전히 이해하지 못했기 때문이었다.
+
+에러가 발생한 시점에 상태:
+- 401에러가 발생, request가 아예 서버로 넘어가지 않는 상황
+- network에서 payload탭안에 headers가 있는 것을 확인
+- network에서 headers탭에 authorization이 비어 있는 것을 확인
+- axios 요청할때 post요청에 필요한 데이터를 "api주소/:id/:id" 같이 보내줬기 때문에 data 공간을 아예 만들지 않았음
+
+해결한 과정:
+- network 탭을 자세히 보니, payload안에 headers가 있는걸 알게 되었고 잘못된 것을 깨달음
+- axios요청 시 data가 들어가야 하는 부분에 빈 배열을 넣어 보냄
+
+
