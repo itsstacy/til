@@ -1,0 +1,128 @@
+이번주 있었던 트러블 슈팅
+사실 작은 것들까지 다 포함하면 엄청 많긴하지만 두가지만 나열해보자면 이렇다:
+https://www.notion.so/tuttimusic/87c0da381f114a138c82f41d1df81275
+
+## 1. S3에 재배포시 https 사이트가 바로 업데이트 되지 않는 현상
+
+**문제발생**
+
+- S3에 새로운 파일들을 넣어 재배포 했을 때, 이전 셋팅해놓은 https 사이트가 업데이트가 안되는 현상
+- 15분 이상 기다려봤지만 여전히 적용이 안 된 것을 확인하고 뭔가 셋팅을 바꿔줘야 한다는 것을 판단함
+
+**레퍼런스**
+
+- 정확히 이 부분이다.
+
+[AWS S3를 이용한 정적 웹 사이트 호스팅 방법 - 3. CloudFront(CDN) / HTTPS](https://longtermsad.tistory.com/46#:~:text=%EA%B2%83%EC%9D%B4%20%ED%99%95%EC%9D%B8%20%EA%B0%80%EB%8A%A5%ED%95%A9%EB%8B%88%EB%8B%A4.-,5.%20Cache%20Invaildations,-CloudFront%20Distribution%20%ED%95%AD%EB%AA%A9%EC%9D%84)
+
+**해결방법**
+
+- 레퍼런스대로 CloudFront Distribution(배포)에서 Cache Invalidations를 수정해주었다.
+- Cache Invalidation을 이렇게 수정해준다.
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8e8c1e4c-2f57-4e2d-a54b-1f375082f833/Untitled.png)
+    
+
+## 5. Route 하위 경로가 바뀌어도 화면이 변경 되지 않는 현상
+
+**문제발생**
+
+- path=”userpage/:id” 에서 id가 변경되어도 최초 접근한 userpage가 유지되는 현상
+
+**해결방법**
+
+- useEffect로 해당 컴포넌트에 들어갔을 때 최초 1번, axios get 요청을 통해서 유저 정보를 가져온다.
+- 그렇기 때문에 의존성 배열에 :id를 넣어서 :id가 변할 때마다 useEffect가 작동하도록 만들었다.
+- 코드
+    
+    ```jsx
+    useEffect(()=>{
+        axios
+        .get("../user/profile/"+**params.artist**, {
+          headers: {Authorization:token? token:""}
+        })
+        .then((response)=>{
+          ..
+        })
+        .catch((error)=>{
+          ..
+        })
+      },[**params.artist**])
+    
+    ```
+    
+
+## 2. 클래스형 컴포넌트에서 Router v6  navigate기능 사용하기
+
+**문제발생**
+
+- 클래스형 컴포넌트를 사용한 컴포넌트를 다루는데 다른 컴포넌트로 이동하는 기능이 필요한 상황
+- 함수형으로 리펙토링하는 방법도 있지만, 시간이 한정되어 있는 점은 감안하여 클래스형을 다뤄보는 것으로 결정함
+- Router 버전이 V6이라서 history 기능을 쓰지 못하고, useNavigate 기능으로 구현을 해야 하지만  클래스형 컴포넌트 내에서는 useNavigate를 사용할 수 없음
+
+**해결과정**
+
+- history 기능이 V6에 지원하지 않는 기능인지 모르고 적용 →  실패고고
+- 검색을 할 때, class component navigate 이라고 검색→ 잘못된 접근
+- 시도해본 코드
+    
+    ```jsx
+    handleGoBack() {
+      this.props.history.goBack();
+      };
+    
+    handleGoHome() {
+    	this.props.history.push("/");
+    	};
+    ```
+    
+- history 기능에 대해 검색해봄 (react history not working으로 검색) → 라우터 V6로 바뀌고 나서 deprecated 된 기능인 것을 알게 됨
+- 지금 라우터 버전을 낮추기엔 navigate기능을 포기할 수 없기 때문에 클래스형 컴포넌트에서 useNavigate쓰는 법을 검색
+
+**레퍼런스**
+
+[How to use react-router-dom v6 navigate in class component](https://stackoverflow.com/questions/70143135/how-to-use-react-router-dom-v6-navigate-in-class-component)
+
+**해결방법**
+
+- 래퍼런스를 찾아 적용해서 해결
+1. withRouter.js 파일을 생성
+2. useNavigate 기능을 클래스형 컴포넌트에 props로 내려줄거다.
+- 코드
+    
+    ```jsx
+    import { useNavigate } from 'react-router-dom';
+    
+    export const withRouter = (Component) => {
+      const Wrapper = (props) => {
+        const navigate = useNavigate();
+        
+        return (
+          <Component
+            navigate={navigate}
+            {...props}
+            />
+        );
+      };
+      
+      return Wrapper;
+    };
+    ```
+    
+1. 클래스형 컴포넌트에서 withRouter.js import하기
+2. 함수 선언
+- 코드
+    
+    ```jsx
+    navigator(){
+            this.props.navigate('/facechatlist')
+        }
+    ```
+    
+1. 다른 함수들처럼 함수 bind해주기 
+2. 원하는 곳에 함수 배치하기
+3. export할 때: export default withRouter(컴포넌트 이름);
+
+**배운점**
+
+- 너무 당연하게 써왔던 라우터 같은 경우에도 버전에 따라 기능이 많이 다르고 실무에서 어떤 버전을 쓰게 될지 모르기 때문에 버전 별로 어떤 기능이 있는지는 공부해두자.

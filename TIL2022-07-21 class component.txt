@@ -1,0 +1,75 @@
+오늘의 트러블슈팅
+
+### 6. 클래스형 컴포넌트에서 Router v6  navigate기능 사용하기
+
+**문제발생**
+
+- 클래스형 컴포넌트를 사용한 컴포넌트를 다루는데 다른 컴포넌트로 이동하는 기능이 필요한 상황 (사실은 함수형으로 리펙토링하는 것이 베스트)
+- Router 버전이 V6이라서 history 기능을 쓰지 못하고, useNavigate 기능으로 구현을 해야 하지만  클래스형 컴포넌트 내에서는 useNavigate를 사용할 수 없음
+
+**해결과정**
+
+- history 기능이 V6에 지원하지 않는 기능인지 모르고 적용 →  실패고고
+- 검색을 할 때, class component navigate 이라고 검색→ 잘못된 접근
+- 시도해본 코드
+    
+    ```jsx
+    handleGoBack() {
+      this.props.history.goBack();
+      };
+    
+    handleGoHome() {
+    	this.props.history.push("/");
+    	};
+    ```
+    
+- history 기능에 대해 검색해봄 (react history not working으로 검색) → 라우터 V6로 바뀌고 나서 deprecated 된 기능인 것을 알게 됨
+- 지금 라우터 버전을 낮추기엔 navigate기능을 포기할 수 없기 때문에 클래스형 컴포넌트에서 useNavigate쓰는 법을 검색
+
+**레퍼런스**
+
+[How to use react-router-dom v6 navigate in class component](https://stackoverflow.com/questions/70143135/how-to-use-react-router-dom-v6-navigate-in-class-component)
+
+**해결방법**
+
+- 래퍼런스를 찾아 적용해서 해결
+1. withRouter.js 파일을 생성
+2. useNavigate 기능을 클래스형 컴포넌트에 props로 내려줄거다.
+- 코드
+    
+    ```jsx
+    import { useNavigate } from 'react-router-dom';
+    
+    export const withRouter = (Component) => {
+      const Wrapper = (props) => {
+        const navigate = useNavigate();
+        
+        return (
+          <Component
+            navigate={navigate}
+            {...props}
+            />
+        );
+      };
+      
+      return Wrapper;
+    };
+    ```
+    
+1. 클래스형 컴포넌트에서 withRouter.js import하기
+2. 함수 선언
+- 코드
+    
+    ```jsx
+    navigator(){
+            this.props.navigate('/facechatlist')
+        }
+    ```
+    
+1. 다른 함수들처럼 함수 bind해주기 
+2. 원하는 곳에 함수 배치하기
+3. export할 때: export default withRouter(컴포넌트 이름);
+
+**배운점**
+
+- 너무 당연하게 써왔던 라우터 같은 경우에도 버전에 따라 기능이 많이 다르고 실무에서 어떤 버전을 쓰게 될지 모르기 때문에 버전 별로 어떤 기능이 있는지는 공부해두자.

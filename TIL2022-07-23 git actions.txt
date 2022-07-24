@@ -1,0 +1,14 @@
+git actions ci/cd workflow file 업데이트
+cloudfront를 이용해 https 프로세스까지 연결을 하려고 찾아보다가
+(정확히 말하자면, 캐싱을 지워줘야 해서 create validation을 해줘야 한다.)
+제대로 된 소스를 한참 찾았는데, 1번이 성공한 코드이고 2번이 실패한 코드이다.
+아! 그리고 IAM에서 권한설정을 해주는 것도 잊으면 안된다!
+이제 cloudfront까지 연결해놨으니 마스터에 푸쉬만 하면 자동으로 올라간다!
+
+1.
+run: aws cloudfront create-invalidation --distribution-id 
+${{secrets.CDN_DISTRIBUTION_ID}} --paths "/*"
+
+2.
+run:  aws cloudfront --region create-invalidation --distribution-id 
+${{ secrets.CDN_DISTRIBUTION_ID }} --paths "/*"
